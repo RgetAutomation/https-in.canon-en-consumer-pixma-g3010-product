@@ -3,137 +3,851 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Our Store</title>
+    <title>RGET Technology - Premium Electronics Store</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #00a8e8;
+            --primary-dark: #0077b6;
+            --secondary: #2ec4b6;
+            --dark: #1a1a2e;
+            --darker: #16213e;
+            --light: #e6f7ff;
+            --gray: #7f8c8d;
+            --light-gray: #f5f7fa;
+            --white: #ffffff;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
-            background-color: #0b0c10;
-            color: #c5c6c7;
+            background-color: var(--light-gray);
+            color: var(--dark);
+            line-height: 1.6;
         }
-        .nav {
-            background: #1f2833;
-            padding: 15px;
-            text-align: center;
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .nav a {
-            color: #66fcf1;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background: #1f2833;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(102, 252, 241, 0.5);
-            opacity: 0;
-        }
-        .product-list {
+        
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
+            justify-content: space-between;
+            align-items: center;
         }
-        .product {
-            background: #0b0c10;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(102, 252, 241, 0.3);
-            width: 200px;
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .logo i {
+            margin-right: 0.75rem;
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), 
+                        url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 5rem 2rem;
             text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(46, 196, 182, 0.4);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 168, 232, 0.4);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark);
+            font-weight: 700;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .promo-banner {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 24px rgba(0, 168, 232, 0.2);
+            text-align: center;
+        }
+        
+        .promo-banner h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .promo-banner p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .promo-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .promo-item {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .product-content {
+            padding: 1.5rem;
+        }
+        
+        .product-category {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+        }
+        
+        .add-to-cart {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        
+        .add-to-cart:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .testimonials {
+            background-color: var(--white);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .testimonial-text::before {
+            top: -1rem;
+            left: -0.5rem;
+        }
+        
+        .testimonial-text::after {
+            bottom: -2rem;
+            right: -0.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .author-info p {
+            margin: 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .contact-section {
+            background-color: var(--darker);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .contact-icon {
+            background-color: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Animation styles */
+        .fade-in {
             opacity: 0;
         }
-        .product img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .product .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 15px;
-            font-size: 14px;
-            color: white;
-            background: #45a29e;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-        .product .btn:hover {
-            background: #66fcf1;
-            color: #1f2833;
-        }
-        h1 {
-            color: #66fcf1;
-        }
-        p {
-            font-size: 18px;
-            color: #c5c6c7;
-        }
-        .thank-you {
-            margin-top: 50px;
-            padding: 20px;
-            background: #1f2833;
-            color: #c5c6c7;
-            border-radius: 10px;
-        }
-        .footer {
-            margin-top: 50px;
-            padding: 20px;
-            background: #1f2833;
-            color: #c5c6c7;
+        
+        @media (max-width: 768px) {
+            .navbar-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
         }
     </style>
 </head>
 <body>
-    <div class="nav">
-      <h1>RGET TECHNOLOGY</h1>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">
+                <i class="fas fa-microchip"></i>
+                RGET TECHNOLOGY
+            </a>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Products</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Premium Electronics & Technology Solutions</h1>
+            <p>Discover cutting-edge technology products with exceptional performance and reliability</p>
+            <a href="#products" class="cta-button">Explore Products</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="promo-banner">
+            <h3>Special Offers This Week</h3>
+            <p>Enjoy exclusive discounts on our premium products</p>
+            <div class="promo-list">
+                <div class="promo-item">Rs. 300 OFF on ₹9,000+</div>
+                <div class="promo-item">Rs. 450 OFF on ₹12,000+</div>
+                <div class="promo-item">Rs. 600 OFF on ₹15,000+</div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>Our Featured Products</h2>
+        </div>
+
+        <div class="product-grid" id="products">
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1551645120-d70bfe84c826?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="High Performance Desktop">
+                    <div class="product-badge">New</div>
+                </div>
+                <div class="product-content">
+                    <span class="product-category">Computers</span>
+                    <h3 class="product-title">High Performance Desktop</h3>
+                    <div class="product-price">
+                        <span class="price">₹32,999</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Premium Laptop">
+                    <div class="product-badge">Popular</div>
+                </div>
+                <div class="product-content">
+                    <span class="product-category">Laptops</span>
+                    <h3 class="product-title">Premium Business Laptop</h3>
+                    <div class="product-price">
+                        <span class="price">₹45,999</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Professional Printer">
+                </div>
+                <div class="product-content">
+                    <span class="product-category">Printers</span>
+                    <h3 class="product-title">Professional All-in-One Printer</h3>
+                    <div class="product-price">
+                        <span class="price">₹12,499</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="4K CCTV Camera">
+                    <div class="product-badge">Sale</div>
+                </div>
+                <div class="product-content">
+                    <span class="product-category">Security</span>
+                    <h3 class="product-title">4K CCTV Camera System</h3>
+                    <div class="product-price">
+                        <span class="price">₹8,999</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Noise Cancelling Headphones">
+                </div>
+                <div class="product-content">
+                    <span class="product-category">Audio</span>
+                    <h3 class="product-title">Noise Cancelling Headphones</h3>
+                    <div class="product-price">
+                        <span class="price">₹5,499</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="HD Webcam">
+                    <div class="product-badge">Best Seller</div>
+                </div>
+                <div class="product-content">
+                    <span class="product-category">Accessories</span>
+                    <h3 class="product-title">HD Streaming Webcam</h3>
+                    <div class="product-price">
+                        <span class="price">₹3,299</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Gaming PC">
+                </div>
+                <div class="product-content">
+                    <span class="product-category">Gaming</span>
+                    <h3 class="product-title">Extreme Gaming PC</h3>
+                    <div class="product-price">
+                        <span class="price">₹72,999</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1592155931584-901ac15763e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="AMD Processor">
+                    <div class="product-badge">New</div>
+                </div>
+                <div class="product-content">
+                    <span class="product-category">Components</span>
+                    <h3 class="product-title">AMD Ryzen 9 Processor</h3>
+                    <div class="product-price">
+                        <span class="price">₹28,999</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="container" id="welcome-container">
-        <h1>Welcome to Our Store. Thank You For Shoping</h1>
-          <h1>On Purchase above Rs. 9,000 - Rs. 300 off
-On Purchase above Rs. 12,000 - Rs. 450 off
-On Purchase above Rs. 15,000 - Rs. 600 off
-For more exciting offers contact us on - 94778 13320 & 8336043063</h1>
-        <h3>RGET TECHNOLOGY</h1>
-        <p>Explore our latest electronic gadgets and enjoy great deals.</p>
-    </div>
-    <div class="product-list">
-      <div class="product"><img src="desktop.jpeg" alt="Desktop"><p>Desktop</p></div>
-      <div class="product"><img src="laptop.jpeg" alt="Laptop"><p>Laptop</p></div>
-      <div class="product"><img src="printer.jpeg" alt="Printer"><p>Printer</p></div>
-      <div class="product"><img src="cctv.jpeg" alt="CCTV Camera"><p>CCTV Camera</p></div>
-      <div class="product"><img src="headphone.jpeg" alt="Headphone"><p>Headphone</p></div>
-      <div class="product"><img src="webCame.jpeg" alt="Webcam"><p>Webcam</p></div>
-      <div class="product"><img src="gamingpc.jpeg" alt="Gaming PC"><p>Gaming PC</p></div>
-      <div class="product"><img src="amdProcceesor.jpeg" alt="Processor"><p>Advanced Processor</p></div>
-      <div class="product"><img src="intel.jpeg" alt="Intel Processor"><p>Intel Processor</p></div>
-      <div class="product"><img src="grphics.jpeg" alt="Graphics Card"><p>Graphics Card</p></div>
-    </div>
-    <div class="thank-you">
-        <h2>Thank You for Visiting!</h2>
-        <p>We appreciate your support. Feel free to explore our products.</p>
-        <a href="https://in.canon/en/consumer/pixma-g3010/product" > <button type="button" class="btn">View Products</button></a>
-       
-    </div>
-    <div class="footer">
-        <p>&copy; 2025 RGET Technology. All rights reserved.</p>
-    </div>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-text">
+                        The gaming PC I purchased exceeded my expectations. The build quality is exceptional and the performance is flawless for all my gaming needs.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul Sharma">
+                        </div>
+                        <div class="author-info">
+                            <h4>Rahul Sharma</h4>
+                            <p>Professional Gamer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-text">
+                        Excellent customer service and fast delivery. The laptop works perfectly for my business needs and the battery life is impressive.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Patel">
+                        </div>
+                        <div class="author-info">
+                            <h4>Priya Patel</h4>
+                            <p>Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-text">
+                        The CCTV system was easy to install and provides crystal clear footage. Highly recommend RGET for all security needs.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Amit Singh">
+                        </div>
+                        <div class="author-info">
+                            <h4>Amit Singh</h4>
+                            <p>Home Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <p>Have questions or need assistance? Our team is here to help</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h4>Call Us</h4>
+                        <p>+91 94778 13320</p>
+                        <p>+91 83360 43063</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4>Email Us</h4>
+                        <p>info@rgettech.com</p>
+                        <p>support@rgettech.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h4>Visit Us</h4>
+                        <p>123 Tech Park, Bangalore</p>
+                        <p>Karnataka, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>RGET Technology</h3>
+                <p>Your trusted partner for premium electronics and technology solutions since 2015.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Computers</a></li>
+                    <li><a href="#">Laptops</a></li>
+                    <li><a href="#">Printers</a></li>
+                    <li><a href="#">Security Systems</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Warranty</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 RGET Technology. All Rights Reserved.
+        </div>
+    </footer>
+
     <script>
-        gsap.to(".container", {opacity: 1, duration: 1.5, y: -20, stagger: 0.5, ease: "power2.out"});
-        gsap.from("h1", {opacity: 0, y: 50, duration: 1, stagger: 0.3, ease: "back.out(1.7)"});
-        gsap.from(".btn", {scale: 0, duration: 0.7, delay: 1, ease: "elastic.out(1, 0.5)"});
-        gsap.from(".nav a", {opacity: 0, y: -20, duration: 1, stagger: 0.2, ease: "power2.out"});
-        gsap.from(".footer", {opacity: 0, y: 30, duration: 1.2, ease: "power2.out"});
-        gsap.to(".product", {opacity: 1, duration: 1.5, y: -10, stagger: 0.2, ease: "power2.out"});
+        // Initialize GSAP animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Animate elements on scroll
+        gsap.utils.toArray('.fade-in').forEach(element => {
+            gsap.from(element, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                ease: "power2.out"
+            });
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'var(--dark)';
+                navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.background = 'linear-gradient(135deg, var(--darker), var(--dark))';
+                navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
-
-
