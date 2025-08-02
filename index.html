@@ -138,12 +138,6 @@
             box-shadow: 0 6px 20px rgba(0, 168, 232, 0.4);
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
-        
         .section-title {
             text-align: center;
             margin-bottom: 3rem;
@@ -203,179 +197,440 @@
             border-radius: 50px;
             font-weight: 500;
         }
-        
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .product-card {
-            background-color: var(--white);
+
+        /* Independence Day Offer Carousel */
+        .independence-offer {
+            background: linear-gradient(135deg, #ff9933, #ffffff, #138808);
+            padding: 1rem;
             border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 2rem auto;
+            max-width: 728px;
+            height: 90px;
             position: relative;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-        }
-        
-        .product-image {
-            height: 200px;
             overflow: hidden;
-            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
-        
-        .product-image img {
-            width: 100%;
+
+        .offer-carousel {
+            display: flex;
+            width: 300%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
+            animation: slide 15s infinite;
         }
-        
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
+
+        .offer-slide {
+            width: 33.33%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1rem;
+            box-sizing: border-box;
         }
-        
-        .product-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background-color: var(--secondary);
-            color: var(--white);
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .product-content {
-            padding: 1.5rem;
-        }
-        
-        .product-category {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        
-        .product-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--dark);
-        }
-        
-        .product-price {
+
+        .offer-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 1rem;
+            width: 100%;
         }
-        
-        .price {
+
+        .offer-text {
+            color: #1a1a2e;
             font-weight: 700;
-            color: var(--primary-dark);
-            font-size: 1.2rem;
-        }
-        
-        .add-to-cart {
-            background-color: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-weight: 500;
-        }
-        
-        .add-to-cart:hover {
-            background-color: var(--primary-dark);
-        }
-        
-        .testimonials {
-            background-color: var(--white);
-            padding: 4rem 2rem;
-            margin: 4rem 0;
+            font-size: 1.5rem;
             text-align: center;
+            flex-grow: 1;
+        }
+
+        .offer-text span {
+            color: #ff0000;
+        }
+
+        .offer-flag {
+            font-size: 2rem;
+            margin: 0 1rem;
+            color: #1a1a2e;
+        }
+
+        @keyframes slide {
+            0%, 33% { transform: translateX(0); }
+            33.33%, 66% { transform: translateX(-33.33%); }
+            66.66%, 100% { transform: translateX(-66.66%); }
         }
         
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        /* Products Section Styles */
+        .products-section {
+            padding: 4rem 2rem;
+            background-color: var(--white);
+        }
+        
+        .products-container {
             max-width: 1200px;
             margin: 0 auto;
         }
         
-        .testimonial-card {
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .product-card {
             background-color: var(--light-gray);
-            padding: 2rem;
             border-radius: 8px;
+            overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            position: relative;
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
         }
         
-        .testimonial-text::before,
-        .testimonial-text::after {
-            content: '"';
-            font-size: 2rem;
-            color: var(--secondary);
-            opacity: 0.3;
-            position: absolute;
-        }
-        
-        .testimonial-text::before {
-            top: -1rem;
-            left: -0.5rem;
-        }
-        
-        .testimonial-text::after {
-            bottom: -2rem;
-            right: -0.5rem;
-        }
-        
-        .testimonial-author {
+        .product-image {
+            height: 200px;
+            background-color: var(--white);
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 1rem;
         }
         
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-category {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .product-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+        
+        .product-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .product-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        
+        .product-button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Top Selling Products Section */
+        .top-selling-section {
+            padding: 4rem 2rem;
+            background-color: var(--darker);
+            color: var(--white);
+        }
+        
+        .top-selling-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .top-selling-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .top-selling-card {
+            background-color: var(--dark);
+            border-radius: 8px;
             overflow: hidden;
-            margin-right: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
         }
         
-        .author-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .top-selling-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
         
-        .author-info h4 {
-            margin: 0;
+        .top-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            z-index: 2;
+        }
+        
+        .top-selling-image {
+            height: 200px;
+            background-color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            position: relative;
+        }
+        
+        .top-selling-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .top-selling-info {
+            padding: 1.5rem;
+        }
+        
+        .top-selling-category {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .top-selling-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--white);
+        }
+        
+        .top-selling-card p {
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        
+        .top-selling-price {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .current-price {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .discount-badge {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
             font-weight: 600;
         }
         
-        .author-info p {
-            margin: 0;
-            color: var(--gray);
+        .top-selling-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
             font-size: 0.9rem;
+            transition: background-color 0.3s;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .top-selling-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Services Section Styles */
+        .services-section {
+            padding: 4rem 2rem;
+            background-color: var(--light-gray);
+        }
+        
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .learn-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .learn-more:hover {
+            color: var(--primary-dark);
+        }
+        
+        .learn-more i {
+            transition: transform 0.3s;
+        }
+        
+        .learn-more:hover i {
+            transform: translateX(3px);
+        }
+        
+        /* Location Section Styles */
+        .location-section {
+            padding: 4rem 2rem;
+            background-color: var(--white);
+        }
+        
+        .location-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .location-info h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .location-info p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .location-hours {
+            margin-top: 2rem;
+        }
+        
+        .location-hours h4 {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .hours-table tr {
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .hours-table tr:last-child {
+            border-bottom: none;
+        }
+        
+        .hours-table td {
+            padding: 0.75rem 0;
+        }
+        
+        .hours-table td:first-child {
+            font-weight: 500;
+        }
+        
+        .hours-table td:last-child {
+            text-align: right;
+        }
+        
+        .location-map {
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
         
         .contact-section {
@@ -504,8 +759,32 @@
                 font-size: 2rem;
             }
             
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            .independence-offer {
+                height: 120px;
+            }
+            
+            .offer-text {
+                font-size: 1.2rem;
+            }
+            
+            .products-grid,
+            .services-grid,
+            .top-selling-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .location-map {
+                height: 300px;
+                margin-top: 2rem;
+            }
+            
+            .promo-list {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -545,181 +824,303 @@
             </div>
         </div>
 
-        <div class="section-title">
-            <h2>Our Featured Products</h2>
-        </div>
-
-        <div class="product-grid" id="products">
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <img src="amdProcceesor.jpeg" alt="High Performance Desktop">
-                    <div class="product-badge">New</div>
-                </div>
-                <div class="product-content">
-                    <span class="product-category">Computers</span>
-                    <h3 class="product-title">High Performance Desktop</h3>
-                    <div class="product-price">
-                        <span class="price">₹32,999</span>
-                        <button class="add-to-cart">Add to Cart</button>
+        <!-- Independence Day Offer Carousel -->
+        <div class="independence-offer">
+            <div class="offer-carousel">
+                <div class="offer-slide">
+                    <div class="offer-content">
+                        <i class="offer-flag fas fa-flag"></i>
+                        <div class="offer-text">Independence Day Special! <span>15% OFF</span> on All Laptops</div>
+                        <i class="offer-flag fas fa-flag"></i>
                     </div>
                 </div>
-            </div>
-
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Premium Laptop">
-                    <div class="product-badge">Popular</div>
-                </div>
-                <div class="product-content">
-                    <span class="product-category">Laptops</span>
-                    <h3 class="product-title">Premium Business Laptop</h3>
-                    <div class="product-price">
-                        <span class="price">₹45,999</span>
-                        <button class="add-to-cart">Add to Cart</button>
+                <div class="offer-slide">
+                    <div class="offer-content">
+                        <i class="offer-flag fas fa-flag"></i>
+                        <div class="offer-text">Freedom Sale! <span>Extra ₹1500 OFF</span> on Desktops</div>
+                        <i class="offer-flag fas fa-flag"></i>
                     </div>
                 </div>
-            </div>
-
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Professional Printer">
-                </div>
-                <div class="product-content">
-                    <span class="product-category">Printers</span>
-                    <h3 class="product-title">Professional All-in-One Printer</h3>
-                    <div class="product-price">
-                        <span class="price">₹12,499</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="4K CCTV Camera">
-                    <div class="product-badge">Sale</div>
-                </div>
-                <div class="product-content">
-                    <span class="product-category">Security</span>
-                    <h3 class="product-title">4K CCTV Camera System</h3>
-                    <div class="product-price">
-                        <span class="price">₹8,999</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Noise Cancelling Headphones">
-                </div>
-                <div class="product-content">
-                    <span class="product-category">Audio</span>
-                    <h3 class="product-title">Noise Cancelling Headphones</h3>
-                    <div class="product-price">
-                        <span class="price">₹5,499</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="HD Webcam">
-                    <div class="product-badge">Best Seller</div>
-                </div>
-                <div class="product-content">
-                    <span class="product-category">Accessories</span>
-                    <h3 class="product-title">HD Streaming Webcam</h3>
-                    <div class="product-price">
-                        <span class="price">₹3,299</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Gaming PC">
-                </div>
-                <div class="product-content">
-                    <span class="product-category">Gaming</span>
-                    <h3 class="product-title">Extreme Gaming PC</h3>
-                    <div class="product-price">
-                        <span class="price">₹72,999</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1592155931584-901ac15763e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="AMD Processor">
-                    <div class="product-badge">New</div>
-                </div>
-                <div class="product-content">
-                    <span class="product-category">Components</span>
-                    <h3 class="product-title">AMD Ryzen 9 Processor</h3>
-                    <div class="product-price">
-                        <span class="price">₹28,999</span>
-                        <button class="add-to-cart">Add to Cart</button>
+                <div class="offer-slide">
+                    <div class="offer-content">
+                        <i class="offer-flag fas fa-flag"></i>
+                        <div class="offer-text">Tricolor Offer! <span>Free Accessories</span> with Every Purchase</div>
+                        <i class="offer-flag fas fa-flag"></i>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Our Products Section -->
+        <section class="products-section" id="products">
+            <div class="products-container">
+                <div class="section-title">
+                    <h2>Our Selling Products</h2>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Custom Desktop">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Desktop Computers</span>
+                            <h3>Custom High-Performance Desktop</h3>
+                            <p>Build your dream PC with our customizable desktop solutions for gaming, work, and creativity.</p>
+                            <div class="product-price">Starting from ₹35,000</div>
+                            <a href="#" class="product-button">Configure Now</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Laptop">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Laptops</span>
+                            <h3>Premium Business Laptops</h3>
+                            <p>Powerful laptops with long battery life and premium build quality for professionals.</p>
+                            <div class="product-price">Starting from ₹45,000</div>
+                            <a href="#" class="product-button">View Options</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Printer">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Printers</span>
+                            <h3>Multifunction Printers</h3>
+                            <p>All-in-one printers with scanning, copying and wireless connectivity features.</p>
+                            <div class="product-price">Starting from ₹8,500</div>
+                            <a href="#" class="product-button">See Models</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="CCTV Camera">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Security Systems</span>
+                            <h3>HD CCTV Camera Systems</h3>
+                            <p>Complete surveillance solutions with night vision and remote monitoring.</p>
+                            <div class="product-price">Starting from ₹12,000</div>
+                            <a href="#" class="product-button">Get Protected</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1592155931584-901ac15763e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Accessories">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Accessories</span>
+                            <h3>Premium Accessories</h3>
+                            <p>Keyboards, mice, headsets and other peripherals to enhance your setup.</p>
+                            <div class="product-price">Starting from ₹1,200</div>
+                            <a href="#" class="product-button">Browse All</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Networking">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Networking</span>
+                            <h3>Networking Equipment</h3>
+                            <p>Routers, switches and other networking gear for home and business.</p>
+                            <div class="product-price">Starting from ₹2,500</div>
+                            <a href="#" class="product-button">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Selling Products Section -->
+        <section class="top-selling-section">
+            <div class="top-selling-container">
+                <div class="section-title">
+                    <h2 style="color: var(--white);">Top Selling Products</h2>
+                </div>
+                <div class="top-selling-grid">
+                    <div class="top-selling-card">
+                        <div class="top-badge">BESTSELLER</div>
+                        <div class="top-selling-image">
+                            <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Custom Desktop">
+                        </div>
+                        <div class="top-selling-info">
+                            <span class="top-selling-category">Desktop Computers</span>
+                            <h3>RGET Pro Workstation</h3>
+                            <p>Powerful desktop with Intel Core i9 processor and NVIDIA RTX graphics</p>
+                            <div class="top-selling-price">
+                                <span class="current-price">₹89,999</span>
+                                <span class="original-price">₹99,999</span>
+                                <span class="discount-badge">10% OFF</span>
+                            </div>
+                            <a href="#" class="top-selling-button">Buy Now</a>
+                        </div>
+                    </div>
+                    <div class="top-selling-card">
+                        <div class="top-badge">TRENDING</div>
+                        <div class="top-selling-image">
+                            <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Laptop">
+                        </div>
+                        <div class="top-selling-info">
+                            <span class="top-selling-category">Laptops</span>
+                            <h3>RGET Ultrabook Pro</h3>
+                            <p>Slim and powerful laptop with 16GB RAM and 1TB SSD storage</p>
+                            <div class="top-selling-price">
+                                <span class="current-price">₹74,999</span>
+                                <span class="original-price">₹84,999</span>
+                                <span class="discount-badge">12% OFF</span>
+                            </div>
+                            <a href="#" class="top-selling-button">Buy Now</a>
+                        </div>
+                    </div>
+                    <div class="top-selling-card">
+                        <div class="top-badge">POPULAR</div>
+                        <div class="top-selling-image">
+                            <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="CCTV Camera">
+                        </div>
+                        <div class="top-selling-info">
+                            <span class="top-selling-category">Security Systems</span>
+                            <h3>RGET 4K CCTV Kit</h3>
+                            <p>4-camera security system with night vision and mobile monitoring</p>
+                            <div class="top-selling-price">
+                                <span class="current-price">₹24,999</span>
+                                <span class="original-price">₹29,999</span>
+                                <span class="discount-badge">17% OFF</span>
+                            </div>
+                            <a href="#" class="top-selling-button">Buy Now</a>
+                        </div>
+                    </div>
+                    <div class="top-selling-card">
+                        <div class="top-badge">HOT</div>
+                        <div class="top-selling-image">
+                            <img src="https://images.unsplash.com/photo-1592155931584-901ac15763e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Accessories">
+                        </div>
+                        <div class="top-selling-info">
+                            <span class="top-selling-category">Accessories</span>
+                            <h3>RGET Mechanical Keyboard</h3>
+                            <p>RGB mechanical keyboard with customizable lighting and switches</p>
+                            <div class="top-selling-price">
+                                <span class="current-price">₹5,999</span>
+                                <span class="original-price">₹7,499</span>
+                                <span class="discount-badge">20% OFF</span>
+                            </div>
+                            <a href="#" class="top-selling-button">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Services Section -->
+        <section class="services-section">
+            <div class="services-container">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-medical"></i>
+                        </div>
+                        <h3>Device Repair & Maintenance</h3>
+                        <p>Expert repair services for all your electronics with genuine parts and professional technicians.</p>
+                        <a href="#" class="learn-more">
+                            Learn more <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Network Solutions</h3>
+                        <p>Complete network setup, configuration, and troubleshooting for homes and businesses.</p>
+                        <a href="#" class="learn-more">
+                            Learn more <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Security Systems</h3>
+                        <p>Advanced security solutions including CCTV installation and smart home security systems.</p>
+                        <a href="#" class="learn-more">
+                            Learn more <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>24/7 Support</h3>
+                        <p>Round-the-clock technical support to ensure your systems are always running smoothly.</p>
+                        <a href="#" class="learn-more">
+                            Learn more <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Onsite Service</h3>
+                        <p>Professional technicians available for onsite visits to resolve your technical issues.</p>
+                        <a href="#" class="learn-more">
+                            Learn more <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Custom Solutions</h3>
+                        <p>Tailored technology solutions designed specifically for your unique business needs.</p>
+                        <a href="#" class="learn-more">
+                            Learn more <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="location-section">
+            <div class="location-container">
+                <div class="section-title">
+                    <h2>Our Location</h2>
+                </div>
+                <div class="location-content">
+                    <div class="location-info">
+                        <h3>Visit Our Store</h3>
+                        <p>We're conveniently located in the heart of the city, ready to serve all your technology needs. Our knowledgeable staff is available to help you find the perfect products and solutions for your home or business.</p>
+                        <p>Come experience our wide selection of electronics, get expert advice, and see why RGET Technology is the preferred choice for tech enthusiasts and professionals alike.</p>
+                        
+                        <div class="location-hours">
+                            <h4>Business Hours</h4>
+                            <table class="hours-table">
+                                <tr>
+                                    <td>Monday - Friday</td>
+                                    <td>9:00 AM - 8:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <td>Saturday</td>
+                                    <td>10:00 AM - 7:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <td>Sunday</td>
+                                    <td>11:00 AM - 5:00 PM</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="location-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.123456789012!2d77.59457231530468!3d12.971891999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzE4LjgiTiA3N8KwMzUnNDAuNSJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>What Our Customers Say</h2>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card fade-in">
-                    <div class="testimonial-text">
-                        The gaming PC I purchased exceeded my expectations. The build quality is exceptional and the performance is flawless for all my gaming needs.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="amdProcceesor.jpeg" alt="Rahul Sharma">
-                        </div>
-                        <div class="author-info">
-                            <h4>Rahul Sharma</h4>
-                            <p>Professional Gamer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card fade-in">
-                    <div class="testimonial-text">
-                        Excellent customer service and fast delivery. The laptop works perfectly for my business needs and the battery life is impressive.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Patel">
-                        </div>
-                        <div class="author-info">
-                            <h4>Priya Patel</h4>
-                            <p>Business Owner</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card fade-in">
-                    <div class="testimonial-text">
-                        The CCTV system was easy to install and provides crystal clear footage. Highly recommend RGET for all security needs.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Amit Singh">
-                        </div>
-                        <div class="author-info">
-                            <h4>Amit Singh</h4>
-                            <p>Home Owner</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="contact-section">
         <div class="contact-container">
@@ -825,6 +1226,67 @@
                 },
                 ease: "power2.out"
             });
+        });
+        
+        // Add animation for product cards
+        gsap.utils.toArray('.product-card').forEach((card, i) => {
+            gsap.from(card, {
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                delay: i * 0.1,
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                ease: "power2.out"
+            });
+        });
+        
+        // Add animation for top selling cards
+        gsap.utils.toArray('.top-selling-card').forEach((card, i) => {
+            gsap.from(card, {
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                delay: i * 0.1,
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                ease: "power2.out"
+            });
+        });
+        
+        // Add animation for service cards
+        gsap.utils.toArray('.service-card').forEach((card, i) => {
+            gsap.from(card, {
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                delay: i * 0.1,
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                ease: "power2.out"
+            });
+        });
+        
+        // Add animation for location section
+        gsap.from('.location-content', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '.location-section',
+                start: "top 80%",
+                toggleActions: "play none none none"
+            },
+            ease: "power2.out"
         });
         
         // Navbar scroll effect
